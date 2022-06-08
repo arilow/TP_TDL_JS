@@ -1,23 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<form id="form">
-    <input type="text" id="txtSong">
-    <input type="text" id="txtArtist">
-    <input type="text" id="txtGenere">
-    <button id="btnSend">Enviar</button>
-</form>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="proyecto.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <form id="form">
+            <input type="text" id="txtSong">
+            <input type="text" id="txtArtist">
+            <input type="text" id="txtGenere">
+            <button id="btnSend">Enviar</button>
+        </form>
 
-<div class="songs-container"></div>
+        <div id="contenedor">      
+            <div id="menu"> Menu 
+                <article class="items">  
+                    <p id="submenu">Todo</p>
+                </article>
+                <article class="items">
+                    <p id="submenu">Genero</p>
+                </article>
+                <article class="items">
+                    <p id="submenu">Artistas</p>
+                </article>
+            </div>
+            <div class="songs-container"> Cuerpo </div>   
+        </div>
 
-<script src="firebase.js" type="module"></script>
-<script src = "index.js" type="module"></script>
+        <script src="firebase.js" type="module"></script>
+        <script src = "index.js" type="module"></script>
 
-</body>
+    </body>
 </html>

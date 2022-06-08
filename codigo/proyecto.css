@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(61, 57, 57);
+}
+
+#contenedor{
+    width: 2560px;
+    height: 1000px;
+    margin: 0.5em auto;
+    padding: 0.5em;
+}
+
+#menu{
+    height: 100%;
+    width: 10%;
+    float: left;
+}
+
+.songs-container{
+    height: 100%;
+    width: 90%;
+    float: right;
+}
+
+.items{
+    width: 80%;
+    height: 5%;
+    background: #dc1818;
+    margin: 1em;
+    border-radius: 1em;
+}
+
+#submenu{
+    font-weight: bold;
+    font-family: Verdana;
+    background: #dc1818;
+    margin: 1em;
+    border-radius: 1em;
+    text-align: center;
+}
