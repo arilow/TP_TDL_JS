@@ -4,8 +4,8 @@ import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-import { getFirestore, 
-        collection, 
+import { getFirestore,
+        collection,
         addDoc,
         getDocs} from "https://www.gstatic.com/firebasejs/9.8.2/firebase-firestore.js"
 
@@ -28,8 +28,8 @@ const analytics = getAnalytics(app);
 
 const store = getFirestore();
 
-export const add = (name, artist, genere)=> { 
+export const add = (name, artist, genere)=> {
     addDoc(collection(store, 'canciones'), {name, artist, genere});
 };
 
-export const getSongCollection = () => getDocs(collection(store, 'canciones')); 
+export const getSongCollection = () => getDocs(collection(store, 'canciones'));

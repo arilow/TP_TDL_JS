@@ -15,23 +15,26 @@
             <button id="btnSend">Enviar</button>
         </form>
 
-        <div id="contenedor">      
-            <div id="menu"> Menu 
-                <article class="items">  
-                    <p id="submenu">Todo</p>
+        <div id="contenedor">
+            <div id="menu">
+                <article>
+                    <button class="submenu" id="todo" type="submit">Todo</button>
                 </article>
-                <article class="items">
-                    <p id="submenu">Genero</p>
+                <article>
+                    <button class="submenu" id="genero" type="submit">Genero</button>
                 </article>
-                <article class="items">
-                    <p id="submenu">Artistas</p>
+                <article>
+                    <button class="submenu" id="artista" type="submit">Artistas</button>
                 </article>
             </div>
-            <div class="songs-container"> Cuerpo </div>   
+            <div class="songs-container">
+                <h1 id="page-title">Solidify<h1>
+            </div>
         </div>
 
         <script src="firebase.js" type="module"></script>
         <script src = "index.js" type="module"></script>
+        <script src = "menu.js" type="module"></script>
 
     </body>
 </html>

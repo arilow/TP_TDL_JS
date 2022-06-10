@@ -9,12 +9,12 @@ const txtArtist = document.getElementById('txtArtist');
 const txtGenere = document.getElementById('txtGenere');
 const btnSend = document.getElementById('btnSend');
 
-let arr = []; 
+let arr = [];
 
 const init = () => {
     arr.forEach(song => {
         addSong(song.name, song.artist, song.genere);
-    });    
+    });
 }
 
 window.addEventListener('DOMContentLoaded', async () => {
@@ -51,10 +51,10 @@ function addSong(nombre, artista, genero) {
     let songDiv = document.createElement("DIV");
     let songDescription = createSongDescription(nombre, artista, genero);
     songDiv.innerHTML = songDescription[0] + songDescription[1] + songDescription[2];
-    
+
     documentFragment.appendChild(songDiv);
-    
-    songsContainer.appendChild(documentFragment);    
+
+    songsContainer.appendChild(documentFragment);
 }
 
 
