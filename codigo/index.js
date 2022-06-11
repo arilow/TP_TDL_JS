@@ -31,19 +31,14 @@ btnSend.addEventListener('click', (e) => {
     e.preventDefault();
 
    add(txtSong.value, txtArtist.value, txtGenere.value);
+   alert("Mande a la base de datos");
    form.reset();
-
-    // documentFragment.reset();
-    // songsContainer.reset();
-    // init();
 });
 
 function createSongDescription(nombre, artista, genero) {
-//    img = "<img class='llave-img' src='llave.jpeg'>"
     nombre = `<h2>${nombre}</h2>`;
     artista = `<h3>${artista}</h3>`;
     genero = `<p><b>$${genero}</b></p>`;
-//    return [img, nombre, modelo, precio];
     return [nombre, artista, genero];
 }
 
@@ -57,7 +52,7 @@ function addSong(nombre, artista, genero) {
     songsContainer.appendChild(documentFragment);
 }
 
-
+export const cargarCanciones = () => {init()};
 
 
 

@@ -1,24 +1,91 @@
 import {add, getSongCollection} from './firebase.js'
+import {cargarCanciones} from './index.js';
 
 const submenu = document.querySelector(".submenu");
 let documentFragment = document.createDocumentFragment();
 
+const songsContainer = document.querySelector(".songs-container");
 const todo = document.getElementById('todo');
 const genero = document.getElementById('genero');
 const artista = document.getElementById('artista');
 
+todo.addEventListener('click', (e) => {
+    e.preventDefault();
 
-const cambiarColor = (e) => {
-    window.addEventListener("click", () => {
-        alert("Deberia cambiar la interfaz");
-    });
-    window.removeEventListener("click");
-    e.stopPropagation();
+    removeAllChilds(songsContainer);
+
+    cargarCanciones();
+});
+
+artista.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    removeAllChilds(songsContainer);
+
+    cargarCanciones();
+
+    let arrAux = [];
+
+    let contador = songsContainer.children.length;
+
+    for(let i = 0; i < contador; i++){
+        arrAux[i] = songsContainer.children[i].getElementsByTagName('h3')[0].innerHTML;    
+    }
+
+    removeAllChilds(songsContainer);
+
+    for(let i = 0; i < contador; i++){
+        addSong(arrAux[i]);    
+    }
+
+    console.log(songsContainer);
+});
+
+genero.addEventListener('click', (e) => {
+
+    removeAllChilds(songsContainer);
+
+    cargarCanciones();
+
+    e.preventDefault();
+
+    let arrAux = [];
+
+    let contador = songsContainer.children.length;
+
+    for(let i = 0; i < contador; i++){
+        arrAux[i] = songsContainer.children[i].getElementsByTagName('p')[0].innerText;    
+    }
+
+    removeAllChilds(songsContainer);
+
+    for(let i = 0; i < contador; i++){
+        addSong(arrAux[i]);    
+    }
+
+    console.log(songsContainer);
+});
+
+function removeAllChilds(songsContainer)
+{
+    while(songsContainer.hasChildNodes())
+    songsContainer.removeChild(songsContainer.firstChild);	
 }
 
-todo.addEventListener('click', cambiarColor());
-genero.addEventListener('click', cambiarColor());
-artista.addEventListener('click', cambiarColor());
+function createArtistDescription(artista) {
+    
+    artista = `<h3>${artista}</h3>`;
+    
+    return artista;
+}
+    
+function addSong(artista) {
+    let songDiv = document.createElement("DIV");
+    let songDescription = createArtistDescription(artista);
+    songDiv.innerHTML = songDescription;
+    documentFragment.appendChild(songDiv);
+    songsContainer.appendChild(documentFragment);
+}
 
 
 
