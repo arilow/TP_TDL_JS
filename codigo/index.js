@@ -3,12 +3,6 @@ import {add, getSongCollection} from './firebase.js'
 const songsContainer = document.querySelector(".songs-container");
 let documentFragment = document.createDocumentFragment();
 
-const form = document.getElementById('form');
-const txtSong = document.getElementById('txtSong');
-const txtArtist = document.getElementById('txtArtist');
-const txtGenere = document.getElementById('txtGenere');
-const btnSend = document.getElementById('btnSend');
-
 let arr = [];
 
 const init = () => {
@@ -25,14 +19,6 @@ window.addEventListener('DOMContentLoaded', async () => {
     console.log(arr[0]);
 
     init();
-});
-
-btnSend.addEventListener('click', (e) => {
-    e.preventDefault();
-
-   add(txtSong.value, txtArtist.value, txtGenere.value);
-   alert("Mande a la base de datos");
-   form.reset();
 });
 
 function createSongDescription(nombre, artista, genero) {
@@ -53,6 +39,3 @@ function addSong(nombre, artista, genero) {
 }
 
 export const cargarCanciones = () => {init()};
-
-
-
