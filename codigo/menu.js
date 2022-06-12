@@ -1,5 +1,7 @@
 import {add, getSongCollection} from './firebase.js'
 import {cargarCanciones} from './index.js';
+import { MenuView } from './menuClass.js';
+import { SongView } from './songClass.js';
 
 const submenu = document.querySelector(".submenu");
 let documentFragment = document.createDocumentFragment();
@@ -10,79 +12,12 @@ const genero = document.getElementById('genero');
 const artista = document.getElementById('artista');
 const agregar = document.getElementById('agregar');
 
-todo.addEventListener('click', (e) => {
-    e.preventDefault();
+let menu = new MenuView(todo, artista, genero, agregar);
 
-    removeAllChilds(songsContainer);
-
-    cargarCanciones();
-});
-
-artista.addEventListener('click', (e) => {
-    e.preventDefault();
-
-    removeAllChilds(songsContainer);
-
-    cargarCanciones();
-
-    let arrAux = [];
-
-    let contador = songsContainer.children.length;
-
-    for(let i = 0; i < contador; i++){
-        arrAux[i] = songsContainer.children[i].getElementsByTagName('h3')[0].innerHTML;
-    }
-
-    removeAllChilds(songsContainer);
-
-    for(let i = 0; i < contador; i++){
-        addSong(arrAux[i]);
-    }
-
-    console.log(songsContainer);
-});
-
-genero.addEventListener('click', (e) => {
-
-    removeAllChilds(songsContainer);
-
-    cargarCanciones();
-
-    e.preventDefault();
-
-    let arrAux = [];
-
-    let contador = songsContainer.children.length;
-
-    for(let i = 0; i < contador; i++){
-        arrAux[i] = songsContainer.children[i].getElementsByTagName('p')[0].innerText;
-    }
-
-    removeAllChilds(songsContainer);
-
-    for(let i = 0; i < contador; i++){
-        addSong(arrAux[i]);
-    }
-
-    console.log(songsContainer);
-});
-
-agregar.addEventListener('click', (e) => {
-
-    e.preventDefault();
-
-    removeAllChilds(songsContainer);
-
-    addMenu();
-
-    console.log(songsContainer);
-});
-
-function removeAllChilds(songsContainer)
-{
-    while(songsContainer.hasChildNodes())
-    songsContainer.removeChild(songsContainer.firstChild);
-}
+menu.touchButtonAll();
+menu.touchButtonArtists();
+menu.touchButtonGenres();
+menu.touchButtonAddSong();
 
 function createArtistDescription(artista) {
     artista = `<h3>${artista}</h3>`;
@@ -100,7 +35,7 @@ function crearMenuCargaBaseDato() {
     return menu;
 }
 
-function addMenu() {
+export function addMenu() {
     let menuDiv = document.createElement("DIV");
     let menuDescription = crearMenuCargaBaseDato();
     menuDiv.innerHTML = menuDescription;
@@ -120,7 +55,7 @@ function addMenu() {
     });
 }
 
-function addSong(artista) {
+export function addSong(artista) {
     let songDiv = document.createElement("DIV");
     let songDescription = createArtistDescription(artista);
     songDiv.innerHTML = songDescription;
