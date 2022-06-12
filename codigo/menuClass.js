@@ -10,6 +10,10 @@ export class MenuView {
         this.addSongButton = add;
     };
 
+    initializeVisual() {
+        this.visual.initializeVisual();
+    }
+
     touchButtonAll() {
         this.songsButton.addEventListener('click', (e) => {
             e.preventDefault();
