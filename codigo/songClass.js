@@ -17,6 +17,7 @@ export class SongView {
     addSong(artists) {
         let songDiv = document.createElement("DIV");
         let songDescription = this.createArtistDescription(artists);
+        songDiv.classList.add(`flex-item`); //Agregue
         songDiv.innerHTML = songDescription;
         documentFragment.appendChild(songDiv);
         songsContainer.appendChild(documentFragment);
@@ -143,6 +144,7 @@ export class SongsData {
     addSong(name, artist, genre) {
         let songDiv = document.createElement("DIV");
         let songDescription = this.createSongDescription(name, artist, genre);
+        songDiv.classList.add(`flex-item`); //Agregue
         songDiv.innerHTML = songDescription[0] + songDescription[1] + songDescription[2];
 
         documentFragment.appendChild(songDiv);
