@@ -1,7 +1,7 @@
 import { MenuView } from './menuView.js';
-import { SongView } from "./songView.js";
+import { PanelView } from "./panelView.js";
 
-let songView = new SongView();
-let menu = new MenuView(songView);
+let panelView = new PanelView();
+let menu = new MenuView(panelView);
 
 

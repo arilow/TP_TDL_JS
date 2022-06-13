@@ -20,25 +20,26 @@ export class SongsData {
         return this.genres;
     }
 
-    addSong(song, artist, genre, link) {
-        this.songs.push({song, artist, genre, link})
+    addSong(name, artist, genre, link) {        
+        this.songs.push({name, artist, genre, link})
+        this.songs.forEach(s => {
+            console.log(s);
+        });
+
         this.genres.add(genre);
         this.artists.add(artist);
-        add(song, artist, genre, link)
+        add(name, artist, genre, link)
     }
 
     getSongsFromDatabase() {
         window.addEventListener('DOMContentLoaded', async () => {
             const querytSnapshot = await getSongCollection();
             querytSnapshot.forEach(doc => {
+                console.log(doc.data());
                 this.songs.push(doc.data());
                 this.genres.add(doc.data().genre);
                 this.artists.add(doc.data().artist);
-                console.log(doc.data());
             });
-            console.log(this.genres);
-            console.log(this.artists);
         });
     };
-
 }
