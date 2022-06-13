@@ -29,7 +29,7 @@ const analytics = getAnalytics(app);
 const store = getFirestore();
 
 export const add = (name, artist, genere)=> {
-    addDoc(collection(store, 'canciones'), {name, artist, genere});
+    addDoc(collection(store, 'songs'), {name, artist, genere});
 };
 
-export const getSongCollection = () => getDocs(collection(store, 'canciones'));
+export const getSongCollection = () => getDocs(collection(store, 'songs'));

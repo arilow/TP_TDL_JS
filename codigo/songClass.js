@@ -120,7 +120,7 @@ export class SongsData {
 
     loadSongs() {
         this.songs.forEach(song => {
-            this.addSong(song.name, song.artist, song.genere);
+            this.addSong(song.name, song.artist, song.genre);
         });
     };
 
