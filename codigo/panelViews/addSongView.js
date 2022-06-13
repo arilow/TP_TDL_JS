@@ -6,11 +6,11 @@ export class AddSongView {
 
     createMenuToLoadDatabase() {
         let menu = `<form id="form">`+
-        `<input type="text" id="txtSong">`+
-        `<input type="text" id="txtArtist">`+
-        `<input type="text" id="txtGenre">`+
-        `<input type="text" id="txtLink">`+
-        `<button id="btnSend">Enviar</button>`+
+        `<input class="inputdata" type="text" id="txtSong">`+
+        `<input class="inputdata" type="text" id="txtArtist">`+
+        `<input class="inputdata" type="text" id="txtGenre">`+
+        `<input class="inputdata" type="text" id="txtLink">`+
+        `<button class="inputdata" id="btnSend">Enviar</button>`+
         `</form>`;
         return menu;
     };
