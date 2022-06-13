@@ -55,6 +55,25 @@
     text-align: center;
 }
 
+#form {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: auto;
+}
+
+.inputdata {
+
+    border: 1px solid silver;
+    border-radius: 4px;
+    padding: 0 10px;
+    height: 10px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+}
+
 .flex-item {
 	flex-grow: 1;
 	margin: 20px;
