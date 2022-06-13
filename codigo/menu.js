@@ -1,14 +1,7 @@
-import { MenuView } from './menuClass.js';
+import { MenuView } from './menuView.js';
+import { SongView } from "./songView.js";
 
-const all = document.getElementById('todo');
-const genre = document.getElementById('genero');
-const artist = document.getElementById('artista');
-const addSongs = document.getElementById('agregar');
+let songView = new SongView();
+let menu = new MenuView(songView);
 
-let menu = new MenuView(all, artist, genre, addSongs);
 
-menu.initializeVisual();
-menu.touchButtonAll();
-menu.touchButtonArtists();
-menu.touchButtonGenres();
-menu.touchButtonAddSong();
