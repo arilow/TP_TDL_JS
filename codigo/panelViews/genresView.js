@@ -1,6 +1,10 @@
 export class GenresView {
-    constructor(songsContainer) {
-        this.songsContainer = songsContainer;
+    constructor(panelContainer) {
+        this.panelContainer = panelContainer;
+
+        this.genresContainer = document.createElement("DIV");
+        this.genresContainer.classList.add(`songs-container`);
+
         this.documentFragment = document.createDocumentFragment();
     }
 
@@ -14,8 +18,9 @@ export class GenresView {
             panel.showSongByGenre(genre);
         });
         
-        this.documentFragment.appendChild(genreDiv);
-        this.songsContainer.appendChild(this.documentFragment);
+        this.genresContainer.appendChild(genreDiv);
+        this.documentFragment.appendChild(this.genresContainer);
+        this.panelContainer.appendChild(this.documentFragment);
     };
 
     createGenreDescription(genre) {

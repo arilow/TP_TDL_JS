@@ -1,6 +1,10 @@
 export class SongsView {
-    constructor(songsContainer) {
-        this.songsContainer = songsContainer;
+    constructor(panelContainer) {
+        this.panelContainer = panelContainer;
+
+        this.songsContainer = document.createElement("DIV");
+        this.songsContainer.classList.add(`songs-container`);
+
         this.documentFragment = document.createDocumentFragment();
     }
 
@@ -21,8 +25,9 @@ export class SongsView {
             window.open(link);
         });
 
-        this.documentFragment.appendChild(songDiv);
-        this.songsContainer.appendChild(this.documentFragment);
+        this.songsContainer.appendChild(songDiv);
+        this.documentFragment.appendChild(this.songsContainer);
+        this.panelContainer.appendChild(this.documentFragment);
     };
 
 }

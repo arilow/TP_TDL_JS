@@ -2,8 +2,8 @@ import { PanelView } from "./panelView.js";
 
 export class MenuView {
 
-    constructor(songView) {
-        this.songView = songView;
+    constructor(panelView) {
+        this.panelView = panelView;
         this.songsButton = document.getElementById('cancion');;
         this.artistButton = document.getElementById('artista');
         this.genreButton = document.getElementById('genero');
@@ -15,22 +15,22 @@ export class MenuView {
     initButtons() {
         this.songsButton.addEventListener('click', (e) => {
             e.preventDefault();
-            this.songView.showSongs();
+            this.panelView.showSongs();
         });
 
         this.artistButton.addEventListener('click', (e) => {
             e.preventDefault();
-            this.songView.showArtists();
+            this.panelView.showArtists();
         });
 
         this.genreButton.addEventListener('click', (e) => {
             e.preventDefault();
-            this.songView.showGenres();
+            this.panelView.showGenres();
         });
  
         this.addSongButton.addEventListener('click', (e) => {
             e.preventDefault();
-            this.songView.showAddSongView();
+            this.panelView.showAddSongView();
         });
     }
  

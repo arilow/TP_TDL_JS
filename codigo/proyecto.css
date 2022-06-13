@@ -17,6 +17,13 @@
     float: left;
 }
 
+.panel-container{
+    height: 100%;
+    width: 90%;
+    float: right;
+    display: grid;
+}
+
 .songs-container{
     height: 100%;
     width: 90%;
@@ -24,7 +31,6 @@
     display: grid;
     grid-template-columns: 20% 20% 20% 20% 20%;
     grid-template-rows: auto;
-
 }
 
 .items{
@@ -55,10 +61,21 @@
     text-align: center;
 }
 
-#form {
+.form {
     display: grid;
     grid-template-columns: 20% 20% 20% 20% 20%;
     grid-template-rows: auto;
+    text-align: center;
+}
+
+.inputdata {
+    padding: 0 10px;
+    height: 10px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
 }
 
 .inputdata {
@@ -83,10 +100,10 @@
 }
 
 .flex-item:hover {
-	border-color: #71a154;
+	border-color: #0b6417;
 	box-shadow: 0px 0px 30px #317124
 }
 .flex-item:focus {
-	border-color: #71a154;
+	border-color: #0b6417;
 	box-shadow: 0px 0px 30px #317124
 }

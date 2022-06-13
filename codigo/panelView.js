@@ -7,18 +7,18 @@ import { SongsView } from './panelViews/songsView.js';
 export class PanelView {
     constructor(){
         this.documentFragment = document.createDocumentFragment();
-        this.songsContainer = document.querySelector(".songs-container");
+        this.panelContainer = document.querySelector(".panel-container");
         this.songInfo = new SongsData();
     };
 
     removeAllChilds(){
-        while(this.songsContainer.hasChildNodes())
-        this.songsContainer.removeChild(this.songsContainer.firstChild);
+        while(this.panelContainer.hasChildNodes())
+        this.panelContainer.removeChild(this.panelContainer.firstChild);
     };
 
     showArtists(){
         this.removeAllChilds();
-        this.currentView = new ArtistsView(this.songsContainer);
+        this.currentView = new ArtistsView(this.panelContainer);
 
         let arrArtists = this.songInfo.getArtists();
         arrArtists.forEach(artist => {
@@ -28,7 +28,7 @@ export class PanelView {
 
     showGenres(){
         this.removeAllChilds();
-        this.currentView = new GenresView(this.songsContainer);
+        this.currentView = new GenresView(this.panelContainer);
         let arrGenres = this.songInfo.getGenres();
 
         arrGenres.forEach(genre => {
@@ -38,7 +38,7 @@ export class PanelView {
 
     showSongs(){
         this.removeAllChilds();
-        this.currentView = new SongsView(this.songsContainer);
+        this.currentView = new SongsView(this.panelContainer);
         let songsArr = this.songInfo.getSongs();
         
         songsArr.forEach(song => {
@@ -48,13 +48,13 @@ export class PanelView {
 
     showAddSongView(){
         this.removeAllChilds();
-        this.currentView = new AddSongView(this.songsContainer);
+        this.currentView = new AddSongView(this.panelContainer);
         this.currentView.addMenu(this.songInfo);
     };
 
     showSongByArtist(artist){
         this.removeAllChilds();
-        this.currentview = new SongsView(this.songsContainer);
+        this.currentview = new SongsView(this.panelContainer);
         let songsArr = this.songInfo.getSongs();
 
         songsArr.forEach(song => {
@@ -66,7 +66,7 @@ export class PanelView {
 
     showSongByGenre(genre){
         this.removeAllChilds();
-        this.currentview = new SongsView(this.songsContainer);
+        this.currentview = new SongsView(this.panelContainer);
         let songsArr = this.songInfo.getSongs();
 
         songsArr.forEach(song => {

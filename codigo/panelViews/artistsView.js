@@ -1,6 +1,10 @@
 export class ArtistsView {
-    constructor(songsContainer) {
-        this.songsContainer = songsContainer;
+    constructor(panelContainer) {
+        this.panelContainer = panelContainer;
+
+        this.artistsContainer = document.createElement("DIV");
+        this.artistsContainer.classList.add(`songs-container`);
+
         this.documentFragment = document.createDocumentFragment();
     }
 
@@ -14,8 +18,9 @@ export class ArtistsView {
             panel.showSongByArtist(artist);
         });
         
-        this.documentFragment.appendChild(artistDiv);
-        this.songsContainer.appendChild(this.documentFragment);
+        this.artistsContainer.appendChild(artistDiv);
+        this.documentFragment.appendChild(this.artistsContainer);
+        this.panelContainer.appendChild(this.documentFragment);
     };
 
     createArtistDescription(artist) {

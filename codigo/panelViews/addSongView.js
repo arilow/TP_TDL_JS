@@ -1,11 +1,28 @@
 export class AddSongView {
-    constructor(songsContainer) {
-        this.songsContainer = songsContainer;
+    constructor(panelContainer) {
+        this.panelContainer = panelContainer;
+
+        this.titlesDiv = document.createElement("DIV");
+        this.titlesDiv.classList.add(`add-song`);
+
+        this.inputDiv = document.createElement("DIV");
+        this.inputDiv.classList.add(`add-song`);
+
         this.documentFragment = document.createDocumentFragment();
     }
 
+    createMenuTitles() {
+        let menu = `<form class="form">`+
+        `<h2 class="titlesdata"> Nombre </h2>`+
+        `<h2 class="titlesdata"> Artista </h2>`+
+        `<h2 class="titlesdata"> Género </h2>`+
+        `<h2 class="titlesdata"> Link </h2>`+
+        `</form>`;
+        return menu;
+    };
+
     createMenuToLoadDatabase() {
-        let menu = `<form id="form">`+
+        let menu = `<form class="form" id="input-form">`+
         `<input class="inputdata" type="text" id="txtSong">`+
         `<input class="inputdata" type="text" id="txtArtist">`+
         `<input class="inputdata" type="text" id="txtGenre">`+
@@ -16,15 +33,19 @@ export class AddSongView {
     };
 
     addMenu(songInfo) {
-        let menuDiv = document.createElement("DIV");
+        this.titlesDiv.innerHTML = this.createMenuTitles();
+
         let menuDescription = this.createMenuToLoadDatabase();
-        menuDiv.innerHTML = menuDescription;
-        this.documentFragment.appendChild(menuDiv);
-        this.songsContainer.appendChild(this.documentFragment);
+        this.inputDiv.innerHTML = menuDescription;
+
+        this.documentFragment.appendChild(this.titlesDiv);
+        this.documentFragment.appendChild(this.inputDiv);
+
+        this.panelContainer.appendChild(this.documentFragment);
         let button = document.getElementById('btnSend');
         button.addEventListener('click', (e) => {
             e.preventDefault();
-            const form = document.getElementById('form');
+            const form = document.getElementById('input-form');
             const txtSong = document.getElementById('txtSong');
             const txtArtist = document.getElementById('txtArtist');
             const txtGenre = document.getElementById('txtGenre');
