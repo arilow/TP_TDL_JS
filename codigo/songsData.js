@@ -38,14 +38,30 @@ export class SongsData {
         add(name, artist, genre, link)
     }
 
+    // Descomentar para obtener datos de firebase mediante async/await.
+    // Tambien hay que descomentar una funcion en firebase.js
+    // 
+    // getSongsFromDatabase() {
+    //     window.addEventListener('DOMContentLoaded', async () => {
+    //         const querytSnapshot = await getSongCollection();
+    //         querytSnapshot.forEach(doc => {
+    //             console.log(doc.data());
+    //             this.songs.push(doc.data());
+    //             this.genres.add(doc.data().genre);
+    //             this.artists.add(doc.data().artist);
+    //         });
+    //     });
+    // };
+
     getSongsFromDatabase() {
-        window.addEventListener('DOMContentLoaded', async () => {
-            const querytSnapshot = await getSongCollection();
-            querytSnapshot.forEach(doc => {
-                console.log(doc.data());
-                this.songs.push(doc.data());
-                this.genres.add(doc.data().genre);
-                this.artists.add(doc.data().artist);
+        window.addEventListener('DOMContentLoaded', () => {
+            getSongCollection().then(output => {                
+                output.forEach(doc => {
+                    console.log(doc.data());
+                    this.songs.push(doc.data());
+                    this.genres.add(doc.data().genre);
+                    this.artists.add(doc.data().artist);
+                });
             });
         });
     };

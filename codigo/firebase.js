@@ -32,4 +32,13 @@ export const add = (name, artist, genre, link)=> {
     addDoc(collection(store, 'songs'), {name, artist, genre, link});
 };
 
-export const getSongCollection = () => getDocs(collection(store, 'songs'));
+// Descomentar para obtener datos de firebase mediante async/await.
+// Tambien hay que descomentar una funcion en songsData.js
+//
+//export const getSongCollection = () => getDocs(collection(store, 'songs'));
+
+export const getSongCollection = () => {
+    return new Promise((res, rej) => {
+        res(getDocs(collection(store, 'songs')));
+    })
+}
