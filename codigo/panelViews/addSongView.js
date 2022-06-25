@@ -51,8 +51,12 @@ export class AddSongView {
             const txtGenre = document.getElementById('txtGenre');
             const txtLink = document.getElementById('txtLink');
 
-            songInfo.addSong(txtSong.value, txtArtist.value, txtGenre.value, txtLink.value)
-            form.reset();
+            try {
+                songInfo.addSong(txtSong.value, txtArtist.value, txtGenre.value, txtLink.value)
+                form.reset();                    
+            } catch (error) {
+                alert(error.msg);
+            }
         });
     };
 

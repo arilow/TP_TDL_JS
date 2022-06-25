@@ -20,7 +20,14 @@ export class SongsData {
         return this.genres;
     }
 
-    addSong(name, artist, genre, link) {        
+    addSong(name, artist, genre, link) {
+        if (name == "" || artist == "" || genre == "" || link == "") {
+            throw {
+                error: "Empty field",
+                msg: "Trying to add a song with an empty field."
+            }
+        }
+
         this.songs.push({name, artist, genre, link})
         this.songs.forEach(s => {
             console.log(s);
