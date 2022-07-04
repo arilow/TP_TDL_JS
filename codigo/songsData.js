@@ -40,7 +40,7 @@ export class SongsData {
 
     // Descomentar para obtener datos de firebase mediante async/await.
     // Tambien hay que descomentar una funcion en firebase.js
-    // 
+
     // getSongsFromDatabase() {
     //     window.addEventListener('DOMContentLoaded', async () => {
     //         const querytSnapshot = await getSongCollection();
@@ -50,18 +50,20 @@ export class SongsData {
     //             this.genres.add(doc.data().genre);
     //             this.artists.add(doc.data().artist);
     //         });
+    //         window.dispatchEvent(new Event("dataBaseLoaded"));
     //     });
     // };
 
     getSongsFromDatabase() {
         window.addEventListener('DOMContentLoaded', () => {
-            getSongCollection().then(output => {                
-                output.forEach(doc => {
+            getSongCollection().then(querytSnapshot => {
+                querytSnapshot.forEach(doc => {
                     console.log(doc.data());
                     this.songs.push(doc.data());
                     this.genres.add(doc.data().genre);
                     this.artists.add(doc.data().artist);
                 });
+                window.dispatchEvent(new Event("dataBaseLoaded"));
             });
         });
     };
